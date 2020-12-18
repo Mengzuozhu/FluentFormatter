@@ -1,0 +1,24 @@
+<idea-plugin>
+    <id>com.mengzz.FluentFormatter</id>
+    <name>Fluent Formatter</name>
+    <vendor email="863561164@qq.com" url="http://www.mzz.com">mzz</vendor>
+
+    <description><![CDATA[
+    Format the code into fluent style.<br>
+    <em>Format the code into fluent style.</em>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <intentionAction>
+            <className>com.mengzz.fluentformatter.EditorFormatterAction</className>
+        </intentionAction>
+    </extensions>
+
+    <actions>
+    </actions>
+</idea-plugin>
