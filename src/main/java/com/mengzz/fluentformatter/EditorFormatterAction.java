@@ -109,13 +109,17 @@ public class EditorFormatterAction extends PsiElementBaseIntentionAction {
             return selectedText;
         }
         String[] nodes = selectedText.split(DOT_REGEX);
+        int length = nodes.length;
+        if (length < LIMIT) {
+            return selectedText;
+        }
         StringBuilder join = new StringBuilder();
-        for (int i = 0; i < nodes.length; i++) {
+        for (int i = 0; i < length; i++) {
             String node = nodes[i];
             join.append(node);
             if (i == 0) {
                 join.append(DOT);
-            } else if (i != nodes.length - 1) {
+            } else if (i != length - 1) {
                 join.append("\n").append(DOT);
             }
         }
