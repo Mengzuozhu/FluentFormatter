@@ -1,6 +1,7 @@
 # Fluent Formatter
 
-<a href="README.md">English Documentation</a>
+<a href="README.md">English Documentation</a>  
+
 格式化代码为流式风格
 
 ## 示例
