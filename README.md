@@ -1,6 +1,6 @@
 # Fluent Formatter
 
-<a href="README-EN.md">中文文档</a>
+<a href="README-CH.md">中文文档</a>
 
 Format the code in a fluent style.
 
