@@ -9,7 +9,7 @@
     <p>Format the code in a fluent style.</p>
     <p>Example:</p>
     <code>IntStream.range(1, 2).map(i -> i + 1).count();</code><br>
-    <p>---></p>
+    <p>After formatted ---></p>
     <code>IntStream.range(1, 2)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(i -> i + 1)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.count();
