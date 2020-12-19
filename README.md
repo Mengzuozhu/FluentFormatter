@@ -21,5 +21,5 @@ IntStream.range(1, 2)
 ## Step
 
 1. Select the code
-2. Use shortcut keys <kbd>Alt</kbd>+<kbd>Enter</kbd>
+2. Press shortcut key <kbd>Alt</kbd>+<kbd>Enter</kbd>
 3. Select `Fluent format`
