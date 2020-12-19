@@ -1,4 +1,4 @@
-# Fluent Formatter
+# Fluent Formatter(IDEA plugin)
 
 <a href="README.md">English Documentation</a>  
 

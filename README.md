@@ -1,4 +1,4 @@
-# Fluent Formatter
+# Fluent Formatter(IDEA plugin)
 
 <a href="README-CH.md">中文文档</a>
 
