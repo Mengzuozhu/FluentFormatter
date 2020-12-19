@@ -21,5 +21,6 @@ IntStream.range(1, 2)
 ## 使用
 
 1. 选中需格式化的代码
-2. 使用快捷键Alt+Enter
-3. 选择Fluent format
+2. 使用快捷键`Alt+Enter`
+3. 选择`Fluent format`
+
