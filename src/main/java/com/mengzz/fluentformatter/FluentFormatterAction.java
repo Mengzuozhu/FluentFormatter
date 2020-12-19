@@ -47,7 +47,7 @@ public class FluentFormatterAction extends PsiElementBaseIntentionAction {
             return false;
         }
         SelectionModel selectionModel = editor.getSelectionModel();
-        // more than one dot
+        // when any line contains more than one dot
         return selectionModel.hasSelection() && splitByLine(selectionModel.getSelectedText())
                 .anyMatch(text -> countMatches(text, DOT, DOT_LIMIT) >= DOT_LIMIT);
     }
@@ -61,22 +61,6 @@ public class FluentFormatterAction extends PsiElementBaseIntentionAction {
     @Override
     public @NotNull @Nls(capitalization = Nls.Capitalization.Sentence) String getFamilyName() {
         return FLUENT_FORMAT;
-    }
-
-    private static int countMatches(String str, String sub, int limit) {
-        if (StringUtils.isEmpty(str) || StringUtils.isEmpty(sub)) {
-            return 0;
-        }
-        int count = 0;
-        int index = 0;
-        while ((index = str.indexOf(sub, index)) != -1) {
-            count++;
-            if (count >= limit) {
-                return count;
-            }
-            index += sub.length();
-        }
-        return count;
     }
 
     private void formatFluentStyle(@NotNull Project project, Editor editor) {
@@ -129,5 +113,21 @@ public class FluentFormatterAction extends PsiElementBaseIntentionAction {
             }
         }
         return join.toString();
+    }
+
+    private int countMatches(String str, String sub, int limit) {
+        if (StringUtils.isEmpty(str) || StringUtils.isEmpty(sub)) {
+            return 0;
+        }
+        int count = 0;
+        int index = 0;
+        while ((index = str.indexOf(sub, index)) != -1) {
+            count++;
+            if (count >= limit) {
+                return count;
+            }
+            index += sub.length();
+        }
+        return count;
     }
 }

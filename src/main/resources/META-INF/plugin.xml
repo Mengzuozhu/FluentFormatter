@@ -4,10 +4,19 @@
     <vendor email="863561164@qq.com" url="https://github.com/Mengzuozhu/FluentFormatter">zuozhu.meng</vendor>
 
     <description><![CDATA[
+
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
-    Format the code in a fluent style.<br>
-    <em>Format the code in a fluent style.</em>
-    <em>格式化代码为流式风格</em>
+    <p>Format the code in a fluent style.</p>
+    <p>Step：</p>
+    <p>1. Select the code</p>
+    <p>2. Use shortcut keys <b>Alt+Enter</b></p>
+    <p>3. Select <b>Fluent format</b></p>
+
+    <p>格式化代码为流式风格</p>
+    <p>使用步骤：</p>
+    <p>1. 选中需格式化的代码</p>
+    <p>2. 使用快捷键<b>Alt+Enter</b></p>
+    <p>3. 选择<b>Fluent format</b></p>
     ]]></description>
 
     <depends>com.intellij.modules.platform</depends>
