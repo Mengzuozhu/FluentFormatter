@@ -22,12 +22,12 @@ import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
- * The type Editor formatter action.
+ * The type Fluent formatter action.
  *
  * @author zuozhu.meng
  * @since 2020 /12/17
  */
-public class EditorFormatterAction extends PsiElementBaseIntentionAction {
+public class FluentFormatterAction extends PsiElementBaseIntentionAction {
     private static final String FLUENT_FORMAT = "Fluent format";
     private static final int DOT_LIMIT = 2;
     private static final String DOT = ".";
