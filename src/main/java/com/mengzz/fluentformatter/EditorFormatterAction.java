@@ -18,6 +18,7 @@ import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 /**
@@ -28,7 +29,7 @@ import java.util.stream.StreamSupport;
  */
 public class EditorFormatterAction extends PsiElementBaseIntentionAction {
     private static final String FLUENT_FORMAT = "Fluent format";
-    private static final int LIMIT = 2;
+    private static final int DOT_LIMIT = 2;
     private static final String DOT = ".";
     private static final String DOT_REGEX = "\\.";
     private static final String LINE = "\n";
@@ -47,7 +48,8 @@ public class EditorFormatterAction extends PsiElementBaseIntentionAction {
         }
         SelectionModel selectionModel = editor.getSelectionModel();
         // more than one dot
-        return selectionModel.hasSelection() && countMatches(selectionModel.getSelectedText(), DOT, LIMIT) >= LIMIT;
+        return selectionModel.hasSelection() && splitByLine(selectionModel.getSelectedText())
+                .anyMatch(text -> countMatches(text, DOT, DOT_LIMIT) >= DOT_LIMIT);
     }
 
     @NotNull
@@ -83,10 +85,9 @@ public class EditorFormatterAction extends PsiElementBaseIntentionAction {
         if (selectedText == null) {
             return;
         }
-        String fluentStr = StreamSupport.stream(LINE_SPLITTER.split(selectedText).spliterator(), false)
+        String fluentStr = splitByLine(selectedText)
                 .map(this::joinFluent)
                 .collect(Collectors.joining(LINE));
-        // StringBuilder fluentStr = joinFluent(selectedText);
         int start = primaryCaret.getSelectionStart();
         int end = primaryCaret.getSelectionEnd();
         Document document = editor.getDocument();
@@ -95,6 +96,10 @@ public class EditorFormatterAction extends PsiElementBaseIntentionAction {
         );
         reformat(project, editor);
         primaryCaret.removeSelection();
+    }
+
+    private Stream<String> splitByLine(String selectedText) {
+        return StreamSupport.stream(LINE_SPLITTER.split(selectedText).spliterator(), false);
     }
 
     private void reformat(@NotNull Project project, Editor editor) {
@@ -110,7 +115,7 @@ public class EditorFormatterAction extends PsiElementBaseIntentionAction {
         }
         String[] nodes = selectedText.split(DOT_REGEX);
         int length = nodes.length;
-        if (length < LIMIT) {
+        if (length < DOT_LIMIT) {
             return selectedText;
         }
         StringBuilder join = new StringBuilder();
