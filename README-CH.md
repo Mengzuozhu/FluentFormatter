@@ -1,10 +1,9 @@
 # Fluent Formatter
 
-<a href="README-EN.md">中文文档</a>
+<a href="README.md">English Documentation</a>
+格式化代码为流式风格
 
-Format the code in a fluent style.
-
-## Example
+## 示例
 
 ```java
 IntStream.range(1, 2).map(i -> i + 1).count(); 
@@ -18,8 +17,8 @@ IntStream.range(1, 2)
          .count();
 ```
 
-## Step
+## 使用
 
-1. Select the code
-2. Use shortcut keys `Alt+Enter`
-3. Select `Fluent format`
+1. 选中需格式化的代码
+2. 使用快捷键Alt+Enter
+3. 选择Fluent format
