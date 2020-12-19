@@ -1,8 +1,8 @@
-# Fluent Formatter(IDEA plugin)
+# Fluent Formatter(IntelliJ插件)
 
 <a href="README.md">English Documentation</a>  
 
-格式化代码为流式风格
+使用该插件，格式化代码为流式风格。
 
 ## 示例
 

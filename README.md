@@ -1,8 +1,10 @@
-# Fluent Formatter(IDEA plugin)
+# Fluent Formatter
 
-<a href="README-CH.md">中文文档</a>
+<a href="README-CH.md">中文文档</a>  
 
-Format the code in a fluent style.
+Fluent Formatter plugin for IntelliJ.
+
+Use this plugin to format the selected code in a fluent style.
 
 ## Example
 
