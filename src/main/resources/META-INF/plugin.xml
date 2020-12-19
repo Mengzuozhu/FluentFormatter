@@ -7,13 +7,23 @@
 
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
     <p>Format the code in a fluent style.</p>
-    <p>Step：</p>
+    <p>Example:</p>
+    <code>IntStream.range(1, 2).map(i -> i + 1).count();</code><br>
+    <p>---></p>
+    <code>IntStream.range(1, 2)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(i -> i + 1)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.count();
+    </code><br>
+
+    <br>
+    <p>Step: </p>
     <p>1. Select the code</p>
     <p>2. Use shortcut keys <b>Alt+Enter</b></p>
     <p>3. Select <b>Fluent format</b></p>
+    <br>
 
     <p>格式化代码为流式风格</p>
-    <p>使用步骤：</p>
+    <p>使用：</p>
     <p>1. 选中需格式化的代码</p>
     <p>2. 使用快捷键<b>Alt+Enter</b></p>
     <p>3. 选择<b>Fluent format</b></p>
