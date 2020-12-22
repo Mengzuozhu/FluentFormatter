@@ -40,6 +40,9 @@
         <intentionAction>
             <className>com.mengzz.fluentformatter.FluentFormatterAction</className>
         </intentionAction>
+        <intentionAction>
+            <className>com.mengzz.fluentformatter.FluentBuilderAction</className>
+        </intentionAction>
     </extensions>
 
     <actions>
