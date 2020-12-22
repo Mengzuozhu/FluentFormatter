@@ -1,23 +1,21 @@
 package com.mengzz.fluentformatter;
 
 import com.google.common.base.Splitter;
+import com.intellij.application.options.CodeStyle;
 import com.intellij.codeInsight.actions.ReformatCodeProcessor;
 import com.intellij.codeInsight.intention.PsiElementBaseIntentionAction;
-import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Caret;
-import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.SelectionModel;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.PsiDocumentManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.codeStyle.CommonCodeStyleSettings;
 import com.intellij.util.IncorrectOperationException;
 import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -31,14 +29,12 @@ public class FluentFormatterAction extends PsiElementBaseIntentionAction {
     private static final String FLUENT_FORMAT = "Fluent format";
     private static final int DOT_LIMIT = 2;
     private static final String DOT = ".";
-    private static final String DOT_REGEX = "\\.";
     private static final String LINE = "\n";
     private static final Splitter LINE_SPLITTER = Splitter.on(LINE);
-    private static final String IMPORT = "import";
 
     @Override
     public void invoke(@NotNull Project project, Editor editor, @NotNull PsiElement element) throws IncorrectOperationException {
-        formatFluentStyle(project, editor);
+        formatFluentStyle(editor, element);
     }
 
     @Override
@@ -59,60 +55,33 @@ public class FluentFormatterAction extends PsiElementBaseIntentionAction {
     }
 
     @Override
-    public @NotNull @Nls(capitalization = Nls.Capitalization.Sentence) String getFamilyName() {
+    public @NotNull
+    @Nls(capitalization = Nls.Capitalization.Sentence)
+    String getFamilyName() {
         return FLUENT_FORMAT;
     }
 
-    private void formatFluentStyle(@NotNull Project project, Editor editor) {
+    private void formatFluentStyle(Editor editor, @NotNull PsiElement element) {
         Caret primaryCaret = editor.getCaretModel().getPrimaryCaret();
-        String selectedText = primaryCaret.getSelectedText();
-        if (selectedText == null) {
+        if (primaryCaret.getSelectedText() == null) {
             return;
         }
-        String fluentStr = splitByLine(selectedText)
-                .map(this::joinFluent)
-                .collect(Collectors.joining(LINE));
-        int start = primaryCaret.getSelectionStart();
-        int end = primaryCaret.getSelectionEnd();
-        Document document = editor.getDocument();
-        WriteCommandAction.runWriteCommandAction(project, () ->
-                document.replaceString(start, end, fluentStr)
-        );
-        reformat(project, editor);
+        reformat(editor, element.getContainingFile());
         primaryCaret.removeSelection();
+    }
+
+    private void reformat(Editor editor, PsiFile file) {
+        CommonCodeStyleSettings commonSettings = CodeStyle.getSettings(file).getCommonSettings("Java");
+        int preWap = commonSettings.METHOD_CALL_CHAIN_WRAP;
+        commonSettings.METHOD_CALL_CHAIN_WRAP = CommonCodeStyleSettings.WRAP_ALWAYS;
+        // 仅修改配置，使用IDEA内部格式化工具
+        new ReformatCodeProcessor(file, editor.getSelectionModel()).runWithoutProgress();
+        // 复位原配置
+        commonSettings.METHOD_CALL_CHAIN_WRAP = preWap;
     }
 
     private Stream<String> splitByLine(String selectedText) {
         return StreamSupport.stream(LINE_SPLITTER.split(selectedText).spliterator(), false);
-    }
-
-    private void reformat(@NotNull Project project, Editor editor) {
-        PsiFile file = PsiDocumentManager.getInstance(project).getPsiFile(editor.getDocument());
-        if (file != null) {
-            new ReformatCodeProcessor(file, editor.getSelectionModel()).runWithoutProgress();
-        }
-    }
-
-    private String joinFluent(String selectedText) {
-        if (StringUtils.isEmpty(selectedText) || selectedText.startsWith(IMPORT)) {
-            return selectedText;
-        }
-        String[] nodes = selectedText.split(DOT_REGEX);
-        int length = nodes.length;
-        if (length < DOT_LIMIT) {
-            return selectedText;
-        }
-        StringBuilder join = new StringBuilder();
-        for (int i = 0; i < length; i++) {
-            String node = nodes[i];
-            join.append(node);
-            if (i == 0) {
-                join.append(DOT);
-            } else if (i != length - 1) {
-                join.append("\n").append(DOT);
-            }
-        }
-        return join.toString();
     }
 
     private int countMatches(String str, String sub, int limit) {

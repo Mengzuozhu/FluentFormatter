@@ -32,7 +32,7 @@
     <p>3. 选择<b>Fluent format</b></p>
     ]]></description>
 
-    <idea-version since-build="162"/>
+    <idea-version since-build="182"/>
 
     <depends>com.intellij.modules.platform</depends>
 
