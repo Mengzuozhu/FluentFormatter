@@ -7,7 +7,7 @@
 
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
     <p>Formats the Java code in a fluent style.
-       It will make the invocation of each chained method on a separate line.
+       It will wrap the invocation of each chained method on a separate line.
     </p>
 
     <p>Example:</p>

@@ -5,12 +5,13 @@
 使用该插件，格式化代码为流式风格。
 
 ## 示例
+格式化前：
 
 ```java
 IntStream.range(1, 2).map(i -> i + 1).count(); 
 ```
 
-After formatted --->
+格式化后：
 
 ```java
 IntStream.range(1, 2)

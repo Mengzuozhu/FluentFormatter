@@ -2,17 +2,15 @@
 
 <a href="README-CH.md">中文文档</a>  
 
-Fluent Formatter plugin for IntelliJ.
-
-Use this plugin to format the selected code in a fluent style.
+Formats the selected Java code in a `fluent style`. It will wrap the invocation of each chained method on a separate line.
 
 ## Example
-
+Before:
 ```java
 IntStream.range(1, 2).map(i -> i + 1).count(); 
 ```
 
-After formatted --->
+After formatted:
 
 ```java
 IntStream.range(1, 2)
@@ -20,7 +18,7 @@ IntStream.range(1, 2)
          .count();
 ```
 
-## Step
+## Usage
 
 1. Select the code
 2. Press shortcut key <kbd>Alt</kbd>+<kbd>Enter</kbd>
