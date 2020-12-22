@@ -6,17 +6,20 @@
     <description><![CDATA[
 
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
-    <p>Format the code in a fluent style.</p>
+    <p>Formats the Java code in a fluent style.
+       It will make the invocation of each streaming method on a separate line.
+    </p>
+
     <p>Example:</p>
     <code>IntStream.range(1, 2).map(i -> i + 1).count();</code><br>
-    <p>After formatted ---></p>
+    <p>After formatted:</p>
     <code>IntStream.range(1, 2)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(i -> i + 1)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.count();
     </code><br>
 
     <br>
-    <p>Step: </p>
+    <p>Usage: </p>
     <p>1. Select the code</p>
     <p>2. Press shortcut key <b>Alt+Enter</b></p>
     <p>3. Select <b>Fluent format</b></p>
