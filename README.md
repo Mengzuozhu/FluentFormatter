@@ -1,6 +1,6 @@
 # Fluent Formatter
 
-<a href="README-CH.md">中文文档</a>  
+<a href="README-CH.md">中文文档</a> |[Plugin homepage](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)
 
 Formats the selected Java code in a `fluent style`. It will wrap the invocation of each chained method on a separate line.
 

@@ -1,6 +1,6 @@
 # Fluent Formatter(IntelliJ插件)
 
-<a href="README.md">English Documentation</a>  
+<a href="README.md">English Documentation</a> |[Plugin homepage](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)
 
 使用该插件，格式化代码为流式风格。
 
