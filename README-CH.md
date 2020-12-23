@@ -2,6 +2,8 @@
 
 <a href="README.md">English Documentation</a> |[Plugin homepage](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)
 
+![useDemo](https://github.com/Mengzuozhu/FluentFormatter/blob/master/demo/useDemo.gif)
+
 ## 功能
 
 - 格式化代码为流式风格
