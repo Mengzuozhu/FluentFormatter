@@ -1,7 +1,8 @@
 # Fluent Formatter
 [![](https://img.shields.io/github/v/release/Mengzuozhu/FluentFormatter)](https://github.com/Mengzuozhu/FluentFormatter/releases)
+[![](https://img.shields.io/badge/plugin-FluentFormatter-purple.svg)](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)  
 
-<a href="README-CH.md">中文文档</a> |[Plugin homepage](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)
+<a href="README-CH.md">中文文档</a>
 
 Formats the Java code in a fluent style, and generates chained methods for the Java builder.
 
