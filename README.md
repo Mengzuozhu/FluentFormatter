@@ -4,7 +4,7 @@
 
 Formats the Java code in a fluent style, and generates chained methods for the Java builder.
 
-![useDemo](\demo\useDemo.gif)
+![useDemo](https://github.com/Mengzuozhu/FluentFormatter/blob/master/demo/useDemo.gif)
 
 ## **Features**
 
