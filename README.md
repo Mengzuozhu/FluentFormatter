@@ -4,6 +4,8 @@
 
 Formats the Java code in a fluent style, and generates chained methods for the Java builder.
 
+![useDemo](\demo\useDemo.gif)
+
 ## **Features**
 
 ● Wrap the invocation of each chained method on a separate line
