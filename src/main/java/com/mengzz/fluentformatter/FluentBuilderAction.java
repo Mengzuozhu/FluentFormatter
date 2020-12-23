@@ -41,7 +41,6 @@ import java.util.Optional;
 public class FluentBuilderAction extends PsiElementBaseIntentionAction {
     private static final String FLUENT_BUILD = "Fluent build";
     private static final String BUILDER = "builder";
-    private static final String SEMICOLON = ";";
 
     @NotNull
     @Override
@@ -71,7 +70,7 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
                     if (document == null) {
                         return;
                     }
-                    StringBuilder builderText = getBuilderText(psiType, psiClass, builderElement);
+                    StringBuilder builderText = getBuilderText(psiType, psiClass);
                     WriteCommandAction.runWriteCommandAction(project, () -> {
                         TextRange textRange = builderElement.getTextRange();
                         int endOffset = textRange.getEndOffset();
@@ -100,7 +99,7 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
     }
 
     @NotNull
-    private StringBuilder getBuilderText(PsiType psiType, PsiClass psiClass, PsiElement builderElement) {
+    private StringBuilder getBuilderText(PsiType psiType, PsiClass psiClass) {
         StringBuilder builder = new StringBuilder("\n");
         for (PsiMethod psiMethod : psiClass.getMethods()) {
             String methodName = psiMethod.getName();
@@ -109,19 +108,15 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
             }
         }
         builder.append(".build()");
-        PsiElement nextSibling = builderElement.getNextSibling();
-        if (nextSibling == null || !SEMICOLON.equals(nextSibling.getText())) {
-            builder.append(SEMICOLON);
-        }
         return builder;
     }
 
     private Boolean isCursorInBuilderName(@NotNull PsiElement element) {
-        return containsBuilder(getParentOfParent(element));
+        return classContainsBuilder(getParentOfParent(element));
     }
 
     private boolean isPrevSiblingContainBuilder(@NotNull PsiElement element) {
-        return containsBuilder(getPrevFirstChild(element));
+        return classContainsBuilder(getPrevFirstChild(element));
     }
 
     private Optional<PsiElement> getParentOfParent(@NotNull PsiElement element) {
@@ -134,7 +129,7 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
                 .map(PsiElement::getFirstChild);
     }
 
-    private boolean containsBuilder(Optional<PsiElement> element) {
+    private boolean classContainsBuilder(Optional<PsiElement> element) {
         return element.map(this::getPsiType)
                 .map(PsiTypesUtil::getPsiClass)
                 .map(PsiNamedElement::getName)
