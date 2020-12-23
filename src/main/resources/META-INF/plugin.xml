@@ -6,36 +6,38 @@
     <description><![CDATA[
 
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
-    <p>Formats and generates the Java code in a fluent style.</p>
-    <p><b>Features</b></p>
-    <p> . Wrap the invocation of each chained method on a separate line.    </p>
-    <p> . Generate the all chained methods for the builder.    </p>
+    <p>Formats the Java code in a fluent style, and generates the chained methods for the Java builder.</p>
+    <br>
 
-    <p>Example:</p>
+    <p><b>Features</b></p>
+    <p> ● Wrap the invocation of each chained method on a separate line    </p>
+    <p> ● Generate the all chained methods for the builder    </p>
+    <br>
+
+    <p><b>Example</b></p>
+    <p>Before</p>
     <code>IntStream.range(1, 2).map(i -> i + 1).count();</code><br>
-    <p>After formatted:</p>
+
+    <p>After formatted</p>
     <code>IntStream.range(1, 2)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(i -> i + 1)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.count();
     </code><br>
 
     <br>
-    <p>Usage: </p>
-    <p>1. Select the code</p>
-    <p>2. Press shortcut key <b>Alt+Enter</b></p>
-    <p>3. Select <b>Fluent format</b></p>
-    <br>
+    <p><b>Usage</b></p>
+    <p>Fluent format </p>
+    <p>Select the code -> press <b>Alt+Enter</b> -> select <b>Fluent format</b></p>
 
-    <p>格式化和生成流式风格的Java代码</p>
-    <p>使用：</p>
-    <p>1. 选中需格式化的代码</p>
-    <p>2. 使用快捷键<b>Alt+Enter</b></p>
-    <p>3. 选择<b>Fluent format</b></p>
+    <br>
+    <p>Fluent build </p>
+    <p>Cursor at the code of Java builder -> press <b>Alt+Enter</b> -> select <b>Fluent build</b></p>
+
     ]]></description>
 
     <idea-version since-build="182"/>
 
-    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
 
     <extensions defaultExtensionNs="com.intellij">
         <intentionAction>
