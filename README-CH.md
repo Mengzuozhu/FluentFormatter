@@ -1,8 +1,9 @@
 # Fluent Formatter(IntelliJ插件)
 
-[![](https://img.shields.io/github/v/release/Mengzuozhu/FluentFormatter)](https://github.com/Mengzuozhu/FluentFormatter/releases)  
+[![](https://img.shields.io/github/v/release/Mengzuozhu/FluentFormatter)](https://github.com/Mengzuozhu/FluentFormatter/releases)
+[![](https://img.shields.io/badge/plugin-FluentFormatter-purple.svg)](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)  
 
-<a href="README.md">English Documentation</a> | [Plugin homepage](https://plugins.jetbrains.com/plugin/15631-fluent-formatter)
+<a href="README-CH.md">中文文档</a>
 
 ![useDemo](https://github.com/Mengzuozhu/FluentFormatter/blob/master/demo/useDemo.gif)
 
