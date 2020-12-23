@@ -6,7 +6,7 @@
     <description><![CDATA[
 
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
-    <p>Formats the Java code in a fluent style, and generates the chained methods for the Java builder.</p>
+    <p>Formats the selected Java code in a fluent style, and generates the chained methods for the Java builder.</p>
     <br>
 
     <p><b>Features</b></p>
