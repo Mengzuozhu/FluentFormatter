@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.mengzz.FluentFormatter</id>
     <name>Fluent Formatter</name>
-    <vendor email="863561164@qq.com" url="https://github.com/Mengzuozhu/FluentFormatter">zzmeng</vendor>
+    <vendor email="863561164@qq.com" url="https://github.com/Mengzuozhu/FluentFormatter">Zz Meng</vendor>
 
     <description><![CDATA[
 
