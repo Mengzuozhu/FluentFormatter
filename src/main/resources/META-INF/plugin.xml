@@ -1,28 +1,22 @@
 <idea-plugin>
     <id>com.mengzz.FluentFormatter</id>
     <name>Fluent Formatter</name>
-    <vendor email="863561164@qq.com" url="https://github.com/Mengzuozhu/FluentFormatter">zuozhu.meng</vendor>
+    <vendor email="863561164@qq.com" url="https://github.com/Mengzuozhu/FluentFormatter">zzmeng</vendor>
 
     <description><![CDATA[
 
     <p><a href="https://github.com/Mengzuozhu/FluentFormatter">GitHub</a></p>
     <p>Formats the selected Java code in a fluent style, and generates the chained methods for the Java builder.</p>
-    <br>
 
+    <br>
+    <div><img src="https://plugins.jetbrains.com/files/15631/screenshot_5a1b980a-038c-4701-84bb-248cc0a98235" alt="use demo" >
+    </div>
+
+    <br>
     <p><b>Features</b></p>
     <p> ● Wrap the invocation of each chained method on a separate line    </p>
     <p> ● Generate the all chained methods for the builder    </p>
     <br>
-
-    <p><b>Example</b></p>
-    <p>Before</p>
-    <code>IntStream.range(1, 2).map(i -> i + 1).count();</code><br>
-
-    <p>After formatted</p>
-    <code>IntStream.range(1, 2)<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(i -> i + 1)<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.count();
-    </code><br>
 
     <br>
     <p><b>Usage</b></p>
