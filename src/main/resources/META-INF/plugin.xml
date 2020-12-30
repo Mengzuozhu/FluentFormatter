@@ -9,8 +9,8 @@
     <p>Formats the selected Java code in a fluent style, and generates the chained methods for the Java builder.</p>
 
     <br>
-    <div><img src="https://plugins.jetbrains.com/files/15631/screenshot_5a1b980a-038c-4701-84bb-248cc0a98235" alt="use demo" >
-    </div>
+    <img src="https://plugins.jetbrains.com/files/15631/screenshot_5a1b980a-038c-4701-84bb-248cc0a98235"
+    width="700" alt="demo" >
 
     <br>
     <p><b>Features</b></p>
