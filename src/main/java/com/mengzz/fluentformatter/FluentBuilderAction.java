@@ -102,13 +102,18 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
     private StringBuilder getBuilderText(PsiType psiType, PsiClass psiClass) {
         StringBuilder builder = new StringBuilder("\n");
         for (PsiMethod psiMethod : psiClass.getMethods()) {
-            String methodName = psiMethod.getName();
-            if (!psiMethod.isConstructor() && psiType.equals(psiMethod.getReturnType())) {
+            PsiType returnType = psiMethod.getReturnType();
+            if (psiType.equals(returnType) || isConvertibleFrom(psiType, returnType)) {
+                String methodName = psiMethod.getName();
                 builder.append(".").append(methodName).append("()\n");
             }
         }
         builder.append(".build()");
         return builder;
+    }
+
+    private boolean isConvertibleFrom(PsiType psiType, PsiType returnType) {
+        return returnType != null && psiType.isConvertibleFrom(returnType);
     }
 
     private Boolean isCursorInBuilderName(@NotNull PsiElement element) {
