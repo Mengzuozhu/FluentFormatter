@@ -31,4 +31,8 @@ intellij {
     updateSinceUntilBuild false
 }
 patchPluginXml {
+    changeNotes """
+      <b>1.5</b> <br>
+      <em> ● Support generics builder</em>
+      <br>"""
 }
