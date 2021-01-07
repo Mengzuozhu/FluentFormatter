@@ -102,6 +102,10 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
     private StringBuilder getBuilderText(PsiType psiType, PsiClass psiClass) {
         StringBuilder builder = new StringBuilder("\n");
         for (PsiMethod psiMethod : psiClass.getMethods()) {
+            // ignore static method
+            if (isStaticMethod(psiMethod)) {
+                continue;
+            }
             PsiType returnType = psiMethod.getReturnType();
             if (psiType.equals(returnType) || isConvertibleFrom(psiType, returnType)) {
                 String methodName = psiMethod.getName();
@@ -110,6 +114,10 @@ public class FluentBuilderAction extends PsiElementBaseIntentionAction {
         }
         builder.append(".build()");
         return builder;
+    }
+
+    private boolean isStaticMethod(PsiMethod psiMethod) {
+        return psiMethod.hasModifierProperty(PsiModifier.STATIC);
     }
 
     private boolean isConvertibleFrom(PsiType psiType, PsiType returnType) {
