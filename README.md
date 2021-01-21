@@ -4,7 +4,7 @@
 
 <a href="README-CH.md">中文文档</a>
 
-## @deprecated replaced by [intellij-fluent-tool](https://github.com/Mengzuozhu/intellij-fluent-tool)
+## @Deprecated replaced by [intellij-fluent-tool](https://github.com/Mengzuozhu/intellij-fluent-tool)
 
 Formats the Java code in a fluent style, and generates chained methods for the Java builder.
 
